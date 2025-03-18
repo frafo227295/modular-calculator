@@ -16,10 +16,19 @@ class Calculator:
     def _append(self, value):
         self.expression += str(value)
     
+    def reset(self):
+        self.expression = ""
+
     def digit(self, value: int | str):
         value = self._ensure_is_digit(value)
         self._append(value)
-    
+
+    def open_parenthesis(self):
+        self._append("(")
+
+    def close_parenthesis(self):
+        self._append(")")
+
     def plus(self):
         self._append("+")
 

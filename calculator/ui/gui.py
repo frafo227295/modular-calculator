@@ -10,6 +10,8 @@ BUTTONS_NAMES = [
     ['4', '5', '6', '*'],
     ['1', '2', '3', '-'],
     ['.', '0', '=', '+'],
+    [ '(', ')', '[', ']'],
+    ['Cancella']
 ]
 
 
@@ -33,6 +35,15 @@ class CalculatorApp(App):
 
     def on_button_press(self, button):
         match button.text:
+            case "Cancella":
+                self._calc.reset()
+                self._display.text = "0"
+            case "(":
+                self._calc.open_parenthesis()
+                self._display.text = self._calc.expression
+            case ")":
+                self._calc.close_parenthesis()
+                self._display.text = self._calc.expression
             case "=":
                 try:
                     result = self._calc.compute_result()
