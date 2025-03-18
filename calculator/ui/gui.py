@@ -9,9 +9,9 @@ BUTTONS_NAMES = [
     ['7', '8', '9', '/'],
     ['4', '5', '6', '*'],
     ['1', '2', '3', '-'],
-    ['.', '0', '=', '+'],
+    ['.', '0', '√', '+'],
     [ '(', ')', '[', ']'],
-    ['Cancella']
+    ['Cancella', '=']
 ]
 
 
@@ -38,6 +38,9 @@ class CalculatorApp(App):
             case "Cancella":
                 self._calc.reset()
                 self._display.text = "0"
+            case "√":
+                self._calc.square_root()
+                self._display.text = self._calc.expression
             case "(":
                 self._calc.open_parenthesis()
                 self._display.text = self._calc.expression

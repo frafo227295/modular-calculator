@@ -29,6 +29,9 @@ class Calculator:
     def close_parenthesis(self):
         self._append(")")
 
+    def square_root(self):
+        self._append("** 0.5")
+        
     def plus(self):
         self._append("+")
 
